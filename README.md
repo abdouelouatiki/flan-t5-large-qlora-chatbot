@@ -17,12 +17,27 @@ Model: google/flan-t5-large quantized to 8‑bit with BitsAndBytes + QLoRA (r=16
 Batch: per‑device batch size = 6, gradient accumulation steps = 2 (≈5 GB VRAM)
 
 # Installation
- # 1. Clone the repository
+## 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-project.git
-cd your-project
+git https://github.com/abdouelouatiki/flan-t5-large-qlora-chatbot
+cd flan-t5-large-qlora-chatbot
 ```
+
+## 2. Create and activate a virtual environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+## 3. Install dependencies
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
 # Hyperparameters:
 
 Learning rate = 3 × 10⁻⁴
