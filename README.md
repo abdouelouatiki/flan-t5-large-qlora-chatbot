@@ -17,7 +17,7 @@ Model: google/flan-t5-large quantized to 8‑bit with BitsAndBytes + QLoRA (r=16
 Batch: per‑device batch size = 6, gradient accumulation steps = 2 (≈5 GB VRAM)
 
 # Installation
-# 1. Clone the repository
+ # 1. Clone the repository
 
 ```bash
 git clone https://github.com/your-username/your-project.git
