@@ -10,11 +10,19 @@ Libraries: transformers, datasets, peft, bitsandbytes, evaluate, nltk, PyPDF2, p
 
 Data file: dataset_full.json (question/answer pairs in JSON format)
 
+
 # Training Script Details
 Model: google/flan-t5-large quantized to 8‑bit with BitsAndBytes + QLoRA (r=16, α=64, dropout=0.0)
 
 Batch: per‑device batch size = 6, gradient accumulation steps = 2 (≈5 GB VRAM)
 
+# Installation
+# 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/your-project.git
+cd your-project
+```
 # Hyperparameters:
 
 Learning rate = 3 × 10⁻⁴
