@@ -1,0 +1,8 @@
+numpy==2.3.1           
+torch==2.7.1           
+nltk==3.9.1            
+datasets==4.0.0        
+evaluate==0.4.5        
+transformers==4.53.2   
+peft==0.16.0           
+bitsandbytes==0.46.1   
