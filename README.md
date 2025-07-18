@@ -1,2 +1,44 @@
-# flan-t5-large-qlora-chatbot
-This project presents a chatbot specialized in Moroccan family law, built on a lightweight conversational model (Flan‑T5) finely tuned in 8‑bit with QLoRA. Its goal is to provide an interface that answers legal questions derived from official documents and web content accurately and reliably.
+# Description
+An automated pipeline extracts and cleans legal texts (selectable PDFs via PyPDF2/pdfplumber and scanned documents via Tesseract), generates high‑quality question–answer pairs (Barthez + cross‑encoder ranking for questions; QAmembert or T5 summarizer for answers), applies filters (grammar checks, semantic overlap validation, duplicate removal), and then fine‑tunes Flan‑T5‑large in 8‑bit using QLoRA.
+
+# Prerequisites
+Python 3.8+
+
+CUDA support for PyTorch
+
+Libraries: transformers, datasets, peft, bitsandbytes, evaluate, nltk, PyPDF2, pdfplumber, pytesseract, Grammalecte, LanguageTool
+
+Data file: dataset_full.json (question/answer pairs in JSON format)
+
+# Training Script Details
+Model: google/flan-t5-large quantized to 8‑bit with BitsAndBytes + QLoRA (r=16, α=64, dropout=0.0)
+
+Batch: per‑device batch size = 6, gradient accumulation steps = 2 (≈5 GB VRAM)
+
+# Hyperparameters:
+
+Learning rate = 3 × 10⁻⁴
+
+Max epochs = 8, EarlyStopping patience = 3
+
+Scheduler = cosine with warmup ratio = 0.10
+
+Optimizer = AdamW
+
+Weight decay = 0.01, max gradient norm = 1.0
+
+Label smoothing = 0.1
+
+Generation: beams = 4, max generation length = 200
+
+Miscellaneous: gradient checkpointing enabled; no fp16 or bf16.
+
+# Experimental Results
+Eval Loss: decreased from 2.35 to 2.20 over 8 epochs
+
+ROUGE‑1/2/L (%): reached 30.18 / 19.38 / 26.97 at epoch 8 (peak ROUGE‑1 of 30.05 at epoch 5)
+
+Plots are available in ./results/plots (PNG format).
+
+# License
+This project is licensed under the MIT License. See the LICENSE file for details.
