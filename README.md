@@ -70,7 +70,5 @@ Eval Loss: decreased from 2.35 to 2.20 over 8 epochs
 
 ROUGE‑1/2/L (%): reached 30.18 / 19.38 / 26.97 at epoch 8 (peak ROUGE‑1 of 30.05 at epoch 5)
 
-Plots are available in ./results/plots (PNG format).
-
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
