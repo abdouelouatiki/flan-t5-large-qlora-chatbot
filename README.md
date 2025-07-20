@@ -16,7 +16,7 @@ Data file: dataset_full.json (question/answer pairs in JSON format)
 
 ```bash
 git https://github.com/abdouelouatiki/flan-t5-large-qlora-chatbot
-cd flan-t5-large-qlora-chatbot
+cd flan-t5-large-qlora-chatbot/src
 ```
 
 ### 2. Create and activate a virtual environment
@@ -34,12 +34,18 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Make the training script executable and run it:
+### Launch with Jupyter Notebook:
 
 ```bash
-chmod +x train_flan_t5_qlora.py
-./train_flan_t5_qlora.p
+jupyter notebook Train.ipynb
 ```
+
+### Launch with JupyterLab:
+
+```bash
+jupyter lab Train.ipynb
+```
+
 Training checkpoints and logs will be saved under ./flan_t5_large_qlora_optim.
 
 ## Training Script Details
